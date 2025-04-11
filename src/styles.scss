@@ -12,3 +12,6 @@ aside {
     height: 100vh;
     background-color: theme.$background-gray;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
