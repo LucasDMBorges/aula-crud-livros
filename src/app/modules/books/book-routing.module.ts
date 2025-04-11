@@ -1,20 +1,22 @@
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
-import { BookComponent } from "./book.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { BookComponent } from './book.component';
 
-export const routes: Routes = [{
+const routes: Routes = [
+  {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
-},
-{
-    path: 'home',
-    component: BookComponent
-}];
+    component: BookComponent,
+    children: [
+    //   { path: '', redirectTo: 'list', pathMatch: 'full' },
+    //   { path: 'list', component: BookListComponent },
+    //   { path: 'form', component: BookFormComponent },
+    //   { path: 'form/:id', component: BookFormComponent },
+    ]
+  }
+];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
-
-export class BookRoutingModule { }
+export class BookRoutingModule {}
