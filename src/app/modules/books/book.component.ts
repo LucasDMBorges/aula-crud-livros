@@ -1,28 +1,11 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
-import { BookService } from '../../shared/services/book.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-book',
-  templateUrl: './book.component.html',
-  styleUrl: './book.component.scss',
+  template: `<router-outlet></router-outlet>`,
   standalone: false
 })
-export class BookComponent implements OnInit {
-  private $book = inject(BookService);
+export class BookComponent {
 
-  ngOnInit(): void {
-    this.getLivros()
-  }
-
-  private getLivros() {
-    this.$book.getLivros().subscribe({
-      next: (res) => {
-        console.log("🚀 ~ BookComponent ~ this.$book.getLivros ~ res:", res)
-      },
-      error: (error) => {
-        console.log("🚀 ~ BookComponent ~ this.$book.getLivros ~ error:", error)
-      }
-    })
-  }
 
 }

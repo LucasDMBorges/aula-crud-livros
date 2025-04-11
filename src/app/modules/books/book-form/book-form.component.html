@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="container__form grid grid-flow-col grid-rows-4 gap-4">
+    <form [formGroup]="bookForm">
+      <div class="row-span-3 grid grid-rows-subgrid gap-4">
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Titulo do livro</mat-label>
+            <input
+              matInput
+              placeholder="Digite o nome do livro aqui."
+              formControlName="titulo"
+            />
+            @if (bookForm.hasError('required')) {
+            <mat-error
+              >Titulo do livro é <strong>obrigatório</strong></mat-error
+            >
+            }
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Editora</mat-label>
+            <input
+              matInput
+              placeholder="Digite o nome da editora aqui."
+              formControlName="editora"
+            />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Preço</mat-label>
+            <input
+              matInput
+              placeholder="Digite o valor do livro aqui"
+              formControlName="preco"
+              type="number"
+            />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Paginas</mat-label>
+            <input
+              matInput
+              placeholder="Digite a quantidade de paginas"
+              formControlName="paginas"
+              type="number"
+            />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>Autores</mat-label>
+            <mat-select
+              formControlName="autor"
+              (selectionChange)="handleAuthor($event)"
+            >
+              @for (autor of autorOptions; track autor._id) {
+              <mat-option [value]="autor._id">{{ autor.nome }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
