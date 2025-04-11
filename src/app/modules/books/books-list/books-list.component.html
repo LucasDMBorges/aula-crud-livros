@@ -1,0 +1,21 @@
+<div class="bookList__header">
+    <div class="booklist__button">
+        <button mat-flat-button routerLink="/books/form">Criar Livro</button>
+    </div>
+</div>
+<div>
+    @for ( book of bookList; track book.id){
+        <mat-card appearance="outlined" class="w-max">
+            <mat-card-header>
+              <mat-card-title> {{book.titulo}}</mat-card-title>
+              <mat-card-subtitle>{{book.autor.nome}}</mat-card-subtitle>
+            </mat-card-header>
+            <br>
+            <mat-card-content>
+                <p class="mat-card-content__publisher">{{book.editora}}</p>
+                <p class="mat-card-content__price">{{book.preco | currency:'BRL'}}</p>
+            </mat-card-content>
+          </mat-card>
+          
+    }
+</div>
