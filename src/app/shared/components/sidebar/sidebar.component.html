@@ -1,0 +1,5 @@
+<div class="container">
+    @for(route of routes; track route){
+    <a [routerLink]="route.path" class="container-link">{{route.title}}</a>
+    }
+</div>

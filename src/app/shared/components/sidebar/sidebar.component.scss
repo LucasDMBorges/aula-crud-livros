@@ -1,0 +1,11 @@
+@use "../../../../theme.scss";
+.container{
+    padding: 1rem;
+    .container-link{
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        font-family: 'Roboto', sans-serif;
+        cursor: pointer;
+    }
+}
